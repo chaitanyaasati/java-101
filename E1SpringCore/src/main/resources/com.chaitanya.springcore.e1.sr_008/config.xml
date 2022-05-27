@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config/>
+
+    <bean class="com.chaitanya.springcore.e1.sr_008_AutowiringXML.Address" name="address">
+        <property name="street" value="londonExpress"></property>
+        <property name="city" value="Noida"></property>
+    </bean>
+
+<!--    <bean class="com.chaitanya.springcore.e1.sr_008_AutowiringXML.Address" name="address2">-->
+<!--        <property name="street" value="VexuPal"></property>-->
+<!--        <property name="city" value="Gurgoan"></property>-->
+<!--    </bean>-->
+
+    <bean class="com.chaitanya.springcore.e1.sr_008_AutowiringXML.Employee" name="emp1" autowire="byName">
+    </bean>
+
+<!--    <bean class="com.chaitanya.springcore.e1.sr_008_AutowiringXML.Employee" name="emp2" autowire="byType">-->
+<!--    </bean>-->
+
+<!--    <bean class="com.chaitanya.springcore.e1.sr_008_AutowiringXML.Employee" name="emp1" autowire="constructor">-->
+<!--    </bean>-->
+
+</beans>

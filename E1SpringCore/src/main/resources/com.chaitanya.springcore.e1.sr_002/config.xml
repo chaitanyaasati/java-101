@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="com.chaitanya.springcore.e1.sr_002_injectingCollection.Student" name="student1">
+        <property name="studentId">
+            <value>34</value>
+        </property>
+        <property name="studentName">
+            <value>"Vinayak"</value>
+        </property>
+        <property name="studentAddress">
+            <value>Lucknow</value>
+        </property>
+        <property name="studentSubjects">
+            <list>
+                <value>Maths</value>
+                <value>English</value>
+                <value>SST</value>
+                <value>Science</value>
+                <null/>
+            </list>
+        </property>
+        <property name="studentLuckyNumbers">
+            <set>
+                <value>10</value>
+                <value>13</value>
+                <value>44</value>
+                <value>55</value>
+            </set>
+        </property>
+        <property name="studentMarks">
+            <map>
+                <entry key="english" value="71"></entry>
+                <entry key="maths" value="89"></entry>
+                <entry key="sst" value="87"></entry>
+                <entry key="science" value="100"></entry>
+            </map>
+        </property>
+    </bean>
+   <!-- more bean definitions go here -->
+</beans>

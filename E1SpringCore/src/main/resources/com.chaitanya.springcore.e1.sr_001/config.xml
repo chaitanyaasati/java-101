@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="com.chaitanya.springcore.e1.sr_001_injectingProperty.Student" name="student1">
+        <property name="studentId">
+            <value>34</value>
+        </property>
+        <property name="studentName">
+            <value>"Vinayak"</value>
+        </property>
+        <property name="studentAddress">
+            <value>Lucknow</value>
+        </property>
+    </bean>
+
+    <bean class="com.chaitanya.springcore.e1.sr_001_injectingProperty.Student" name="student2">
+        <property name="studentId" value="35"></property>
+        <property name="studentName" value="Pinak"></property>
+        <property name="studentAddress" value="Gurgoan"></property>
+    </bean>
+
+<!--    below bean is by p schema-->
+    <bean class="com.chaitanya.springcore.e1.sr_001_injectingProperty.Student" name="student3" p:studentId="24234" p:studentName="Vish" p:studentAddress="Delhi"/>
+</beans>
