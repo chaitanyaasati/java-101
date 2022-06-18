@@ -7,11 +7,13 @@ import com.chaitanya.springboot.k1.repositories.CategoryRepo;
 import com.chaitanya.springboot.k1.services.CategoryService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class CategoryServiceImpl implements CategoryService {
+@Service
+public class CategoryServiceImpl implements CategoryService{
 
     @Autowired
     private CategoryRepo categoryRepo;
@@ -54,3 +56,4 @@ public class CategoryServiceImpl implements CategoryService {
         return categoriesDto;
     }
 }
+

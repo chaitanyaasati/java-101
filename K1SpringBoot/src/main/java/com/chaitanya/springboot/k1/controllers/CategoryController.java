@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -17,27 +18,28 @@ public class CategoryController{
     private CategoryService categoryService;
 
     @PostMapping("/")
-    public ResponseEntity<CategoryDto> createCategory(@RequestBody CategoryDto categoryDto){
+    public ResponseEntity<CategoryDto> createCategory(@Valid @RequestBody CategoryDto categoryDto){
+        System.out.println("I am here");
         CategoryDto createCategory = this.categoryService.createCategory(categoryDto);
         return new ResponseEntity<CategoryDto>(createCategory, HttpStatus.CREATED);
     }
 
     //update
-    @PostMapping("/")
-    public ResponseEntity<CategoryDto> updateCategory(@RequestBody CategoryDto categoryDto, @PathVariable Integer categoryId){
+    @PutMapping("/{categoryId}")
+    public ResponseEntity<CategoryDto> updateCategory(@Valid @RequestBody CategoryDto categoryDto, @PathVariable Integer categoryId){
         CategoryDto updatedCategory = this.categoryService.updateCategory(categoryDto, categoryId);
         return new ResponseEntity<CategoryDto>(updatedCategory, HttpStatus.OK);
     }
 
     //delete
-    @DeleteMapping("/{catId}")
+    @DeleteMapping("/{categoryId}")
     public ResponseEntity<ApiResponse> deleteCategory(@PathVariable Integer categoryId){
         this.categoryService.deleteCategory(categoryId);
-        return new ResponseEntity<ApiResponse>(new ApiResponse("category is deleted successfully",false), HttpStatus.OK);
+        return new ResponseEntity<ApiResponse>(new ApiResponse("category is deleted successfully",true), HttpStatus.OK);
     }
 
     //get
-    @GetMapping("/{categoryID")
+    @GetMapping("/{categoryId}")
     public ResponseEntity<CategoryDto> getCategory(@PathVariable Integer categoryId){
         CategoryDto categoryDto  = this.categoryService.getCategory(categoryId);
         return new ResponseEntity<CategoryDto>(categoryDto, HttpStatus.OK);

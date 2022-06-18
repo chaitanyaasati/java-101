@@ -8,10 +8,9 @@ import com.chaitanya.springboot.k1.services.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
-
 import java.util.List;
 import java.util.stream.Collectors;
+
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -61,7 +60,6 @@ public class UserServiceImpl implements UserService {
 
     private User dtoToUser(UserDto userDto){
         User user = this.modelMapper.map(userDto, User.class);
-
 //        User user = new User();
 //        user.setId(userDto.getId());
 //        user.setName(userDto.getName());
