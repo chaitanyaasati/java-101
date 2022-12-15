@@ -1,5 +1,6 @@
 package com.chaitanya.springcore.e1.sr_018_javaConfig;
 
+//we have removed component annotation here
 public class Address {
     String street;
     String city;

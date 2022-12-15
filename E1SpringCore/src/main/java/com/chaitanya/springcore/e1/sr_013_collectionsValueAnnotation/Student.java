@@ -5,7 +5,8 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Component("student1")
+//@Component => by default name of bean would be student
+@Component("student1")  // => name of bean would be student1
 public class Student {
     @Value("Chaitanya")
     private String studentName;

@@ -1,10 +1,13 @@
 package com.chaitanya.springboot.k1.payloads;
 
+import com.chaitanya.springboot.k1.entities.Role;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.validation.constraints.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @NoArgsConstructor
 @Getter
@@ -12,7 +15,7 @@ import javax.validation.constraints.*;
 public class UserDto {
     private int id;
     @NotEmpty
-    @Size(min = 4,message = "Username ,ust be min of 4 characters")
+    @Size(min = 4,message = "Username must be min of 4 characters")
     private String name;
 
     @Email(message="Email address is  not valid !!")
@@ -24,4 +27,6 @@ public class UserDto {
 
     @NotEmpty
     private String about;
+
+    private Set<RoleDto> roles = new HashSet<>();
 }

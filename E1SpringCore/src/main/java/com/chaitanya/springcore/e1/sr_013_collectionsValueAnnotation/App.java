@@ -8,5 +8,6 @@ public class App {
         ApplicationContext context = new ClassPathXmlApplicationContext("com.chaitanya.springcore.e1.sr_013/config.xml");
         Student student = context.getBean("student1",Student.class);
         System.out.println(student);
+        System.out.println(student.getAddresses().getClass().getName());
     }
 }

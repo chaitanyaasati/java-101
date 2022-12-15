@@ -8,6 +8,7 @@ import java.util.List;
 
 @Component
 @Scope("prototype")
+// by default scope is singleton
 public class Student {
 
     @Value("Lokesh")

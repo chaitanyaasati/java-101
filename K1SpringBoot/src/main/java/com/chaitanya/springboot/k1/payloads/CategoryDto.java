@@ -17,6 +17,7 @@ public class CategoryDto {
     @NotBlank
     @Size(min=4, message="Min size of category title is 4")
     private String categoryTitle;
+
     @NotBlank
     @Size(max=40, message="Max size of category desc is 40")
     @Size(min=10, message="Min size of category desc in 10")

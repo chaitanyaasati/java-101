@@ -1,14 +1,19 @@
 package com.chaitanya.springboot.k1.services.impl;
 
+import com.chaitanya.springboot.k1.config.AppConstants;
+import com.chaitanya.springboot.k1.entities.Role;
 import com.chaitanya.springboot.k1.entities.User;
 import com.chaitanya.springboot.k1.exceptions.ResourceNotFoundException;
 import com.chaitanya.springboot.k1.payloads.UserDto;
+import com.chaitanya.springboot.k1.repositories.RoleRepo;
 import com.chaitanya.springboot.k1.repositories.UserRepo;
 import com.chaitanya.springboot.k1.services.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 
@@ -20,6 +25,24 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private ModelMapper modelMapper;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private RoleRepo roleRepo;
+
+    @Override
+    public UserDto registerNewUser(UserDto userDto) {
+        User user = this.modelMapper.map(userDto, User.class);
+        //encoded the password
+        user.setPassword(this.passwordEncoder.encode(user.getPassword()));
+        //roles
+        Role role =  this.roleRepo.findById(AppConstants.NORMAL_USER).get();
+        user.getRoles().add(role);
+        User newUser = this.userRepo.save(user);
+        return this.modelMapper.map(newUser, UserDto.class);
+    }
 
     @Override
     public UserDto createUser(UserDto userDto) {

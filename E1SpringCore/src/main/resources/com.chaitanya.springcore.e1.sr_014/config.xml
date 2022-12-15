@@ -19,5 +19,10 @@
         <value>Umang</value>
     </util:list>
 
+    <bean class="com.chaitanya.springcore.e1.sr_014_springBeanScope.Teacher" name="teacher" scope="prototype">
+    </bean>
+
+
+
 </beans>
 
